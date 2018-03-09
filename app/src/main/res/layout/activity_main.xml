@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        tools:text="Hello World!"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="50dp"
         android:layout_marginTop="100dp"
@@ -24,21 +24,34 @@
         android:ellipsize="end"
         tools:targetApi="o" />
 
-    <!-- view group of date and time  -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toStartOf="@+id/location"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/date"
-        android:text="09-March-2018"/>
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/date"
-        android:id="@+id/time"
-        tools:text="06:00PM"/>
+        android:orientation="vertical">
+
+        <!-- view group of date and time  -->
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="09-March-2018"
+            android:drawableStart="@drawable/add_event"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="06:00PM"
+            android:drawableStart="@drawable/time"/>
+        <TextView
+            android:id="@+id/rsvp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R.S.V.P to the event"
+            android:drawableStart="@drawable/ic_rsvp"/>
+    </LinearLayout>
 
 
 
@@ -54,7 +67,7 @@
         android:id="@+id/location"
         android:drawableStart="@drawable/ic_place_black_24dp"
         android:layout_alignParentBottom="true"
-        android:text="Sample Location place"
+        tools:text="Sample Location place"
         android:layout_centerInParent="true"
         />
 </RelativeLayout>
