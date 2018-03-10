@@ -25,32 +25,42 @@
         tools:targetApi="o" />
 
 
-
     <LinearLayout
+        android:id="@+id/details_pane"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp">
 
         <!-- view group of date and time  -->
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="09-March-2018"
-            android:drawableStart="@drawable/add_event"/>
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/add_event"
+            android:padding="5dp"
+            tools:text="09-March-2018" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="06:00PM"
-            android:drawableStart="@drawable/time"/>
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/time"
+            android:padding="5dp"
+            tools:text="06:00PM" />
+
         <TextView
             android:id="@+id/rsvp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="R.S.V.P to the event"
-            android:drawableStart="@drawable/ic_rsvp"/>
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_rsvp"
+            android:padding="5dp"
+            android:text="R.S.V.P to the event" />
     </LinearLayout>
 
 
@@ -61,7 +71,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="10dp"
         android:maxLines="1"
         android:ellipsize="end"
         android:id="@+id/location"
