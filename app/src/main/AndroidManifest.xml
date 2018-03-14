@@ -24,7 +24,7 @@
                 <data
                     android:scheme="https"
                     android:host="gurukathir-15.github.io"
-                    android:path="/*" />
+                    android:pathPattern="/.*" />
             </intent-filter>
         </activity>
     </application>

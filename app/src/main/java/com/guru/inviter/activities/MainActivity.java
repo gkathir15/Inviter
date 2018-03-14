@@ -6,9 +6,12 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.guru.inviter.R;
 import com.guru.inviter.model.InviteDetails;
+
+import org.w3c.dom.Text;
 
 import java.net.URI;
 
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     GetInviteInfo getInviteInfo = new GetInviteInfo();
     InviteDetails inviteDetails = new InviteDetails();
+    Uri mBaseaUri;
+    TextView mTitle,mDate,mTime,mRsvp,mPlace;
 
 
     @Override
@@ -23,22 +28,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // ATTENTION: This was auto-generated to handle app links.
-//        Intent appLinkIntent = getIntent();
-//        String appLinkAction = appLinkIntent.getAction();
-//        Uri appLinkData = appLinkIntent.getData();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         Intent appLinkIntent = getIntent();
-        String appLinkAction = appLinkIntent.getAction();
+       String appLinkAction = appLinkIntent.getAction();
         Uri appLinkData = appLinkIntent.getData();
-       inviteDetails.setPostfix(appLinkIntent.getData());
-        Log.d( "Postfix", String.valueOf(inviteDetails.getPostfix()));
-
-
+        Log.d( "Path", String.valueOf(appLinkData));
+        mBaseaUri = appLinkData;
     }
+
 
     public class GetInviteInfo extends AsyncTask<URI,Void,Void>
     {
@@ -50,11 +46,25 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            mTitle.setText(inviteDetails.getUser()+"'s"+inviteDetails.getTitle());
+            mDate.setText(inviteDetails.getDate());
+            mTime.setText(inviteDetails.getTime());
+            mPlace.setText(inviteDetails.getVenue());
         }
 
         @Override
         protected Void doInBackground(URI... uris) {
             return null;
         }
+
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getInviteInfo.cancel(true);
     }
 }
